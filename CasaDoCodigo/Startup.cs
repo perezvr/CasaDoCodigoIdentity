@@ -66,6 +66,8 @@ namespace CasaDoCodigo
             }
 
             app.UseStaticFiles();
+            //Adicionando o Middleware do Identity no pipeline do asp.net core
+            app.UseAuthentication();
             app.UseSession();
             app.UseMvc(routes =>
             {
