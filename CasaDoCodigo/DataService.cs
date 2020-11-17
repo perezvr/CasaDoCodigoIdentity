@@ -1,6 +1,5 @@
 ﻿using CasaDoCodigo.Models;
 using CasaDoCodigo.Repositories;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
