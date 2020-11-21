@@ -69,6 +69,12 @@ namespace CasaDoCodigo.Repositories
 
                 await contexto.SaveChangesAsync();
             }
+            else
+            {
+                itemPedido.AtualizaQuantidade(itemPedido.Quantidade + 1);
+                contexto.Entry(itemPedido).State = EntityState.Modified;
+                contexto.SaveChanges();
+            }
         }
 
         public async Task<Pedido> GetPedidoAsync()
