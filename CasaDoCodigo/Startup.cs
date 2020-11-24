@@ -44,6 +44,21 @@ namespace CasaDoCodigo
             services.AddTransient<IProdutoRepository, ProdutoRepository>();
             services.AddTransient<IPedidoRepository, PedidoRepository>();
             services.AddTransient<ICadastroRepository, CadastroRepository>();
+
+            //Configurando login externo com a conta Microsoft
+            services.AddAuthentication()
+                .AddMicrosoftAccount(options =>
+                {
+                    options.ClientId = Configuration["ExternalLogin:Microsoft:ClientId"];
+                    options.ClientSecret = Configuration["ExternalLogin:Microsoft:ClientSecret"];
+                })
+                .AddGoogle(options =>
+                {
+                    options.ClientId = Configuration["ExternalLogin:Google:ClientId"];
+                    options.ClientSecret = Configuration["ExternalLogin:Google:ClientSecret"];
+                });
+
+
         }
 
 
